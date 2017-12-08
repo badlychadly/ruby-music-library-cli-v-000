@@ -1,3 +1,4 @@
+  require 'pry'
 class MusicImporter
   attr_accessor :path
 
@@ -10,9 +11,9 @@ class MusicImporter
   # end
 
   def files
-   @files ||= Dir.glob("#{path}/*.mp3").collect do |f| 
+   @files ||= Dir.glob("#{path}/*.mp3").collect do |f|
      binding.pry
-     f.gsub("#{path}/", "") 
+     f.gsub("#{path}/", "")
    end
  end
 
