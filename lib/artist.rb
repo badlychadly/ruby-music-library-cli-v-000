@@ -26,7 +26,7 @@ class Artist
 
   #INSTANCE METHODS
   def save
-    @@all << self
+    self.all << self
   end
 
   def add_song(song)
