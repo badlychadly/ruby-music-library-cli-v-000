@@ -51,19 +51,19 @@ class MusicLibraryController
   end
 
   def list_songs_for_play
-    Song.all.sort_by!{|s| s.name}.collect.with_index(1) do |s, i|
+    Song.all.sort_by{|s| s.name}.collect.with_index(1) do |s, i|
        "#{i}. #{s.artist.name} - #{s.name} - #{s.genre.name}"
      end
   end
 
   def list_artists
-    Artist.all.sort_by!{|a| a.name}.each.with_index(1) do |a, i|
+    Artist.all.sort_by{|a| a.name}.each.with_index(1) do |a, i|
        puts "#{i}. #{a.name}"
      end
   end
 
   def list_genres
-    Genre.all.sort_by!{|g| g.name}.each.with_index(1) do |g, i|
+    Genre.all.sort_by{|g| g.name}.each.with_index(1) do |g, i|
        puts "#{i}. #{g.name}"
      end
   end
@@ -74,7 +74,7 @@ class MusicLibraryController
     puts "Please enter the name of an artist:"
     input = gets.strip
     if Artist.find_by_name(input)
-      Artist.find_by_name(input).songs.sort_by!{|song| song.name}.each.with_index(1) do |song, i|
+      Artist.find_by_name(input).songs.sort_by{|song| song.name}.each.with_index(1) do |song, i|
           puts "#{i}. #{song.name} - #{song.genre.name}"
       end
     end
